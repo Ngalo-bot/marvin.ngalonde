@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Updated to dark navy blue for primary elements */
+    --primary: 222.2 47.4% 7.2%; /* Darker navy blue (reduced lightness from 11.2% to 7.2%) */
+    --primary-foreground: 210 40% 98%;
+    --ring: 222.2 47.4% 7.2%; /* Matching dark navy for focus ring */
+  }
+
+  .dark {
+    /* Dark theme updates - using richer dark navy */
+    --background: 222.2 47.4% 7.2%; /* Dark navy background */
+    --card: 222.2 47.4% 7.2%; /* Dark navy card */
+    --popover: 222.2 47.4% 7.2%;
+    --secondary: 222.2 32.6% 12.5%; /* Slightly lighter navy for secondary */
+    --muted: 222.2 32.6% 12.5%;
+    --accent: 222.2 32.6% 12.5%;
+    --border: 222.2 32.6% 12.5%;
+    --input: 222.2 32.6% 12.5%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for light theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Light gray track */
+}
+
+/* Update scrollbar colors to match new dark navy */
+::-webkit-scrollbar-thumb {
+  background: hsl(222.2 47.4% 7.2%); /* Dark navy */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(222.2 47.4% 5.2%); /* Even darker navy */
+}
+
+/* Update selection color */
+::selection {
+  background: rgba(30, 58, 138, 0.3); /* Dark navy with transparency */
+}
+
+/* Grid pattern background for light theme */
+.bg-grid-pattern {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Glassmorphism effect for light theme */
+.glass {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes star-movement-bottom {
+  0% { transform: translateX(0) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(180deg); }
+}
+
+@keyframes star-movement-top {
+  0% { transform: translateX(0) rotate(0deg); }
+  100% { transform: translateX(50%) rotate(180deg); }
+}
+
+.animate-star-movement-bottom {
+  animation: star-movement-bottom linear infinite;
+}
+
+.animate-star-movement-top {
+  animation: star-movement-top linear infinite;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom focus styles */
+.focus-gradient:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Code font */
+code,
+pre {
+  font-family: var(--font-mono), "Courier New", monospace;
+}
+
+.darkveil-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.text-type__cursor {
+  margin-left: 0.25rem;
+  display: inline-block;
+  opacity: 1;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}
+
+/* TextType.css content */
+.text-type {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.text-type__content {
+  display: inline-block;
+}
+
+.text-type__cursor {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 2px;
+  font-weight: normal;
+  animation: blink-cursor 0.7s steps(1) infinite;
+}
+
+.text-type__cursor--hidden {
+  opacity: 0 !important;
+}
+
+@keyframes blink-cursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* DarkVeil.css content */
+.darkveil-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it's behind content */
+}
+
+/* Dot pattern background for dark theme */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
