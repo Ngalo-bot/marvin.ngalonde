@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 
-const repo = 'marvin.ngalonde'; 
 
 const nextConfig = {
   output: 'export', 
+
 
   
 
