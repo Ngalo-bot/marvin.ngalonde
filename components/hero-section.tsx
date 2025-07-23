@@ -147,7 +147,7 @@ export default function HeroSection() {
                   className="border-2 border-[#fff] dark:border-[#666699] text-[#fff] dark:text-[#ccccff] hover:bg-[#000066]/10 dark:hover:bg-[#666699]/10 px-8 py-4 text-lg rounded-full bg-transparent backdrop-blur-sm"
                 >
                   <a
-                    href="/Marvin-Ngalonde-resume.pdf"
+                    href="/Marvin-Ngalonde-Resume.pdf"
                     download="Marvin-Ngalonde-Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
