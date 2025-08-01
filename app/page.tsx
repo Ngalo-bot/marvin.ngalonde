@@ -21,7 +21,7 @@ export default function Portfolio() {
         <WorkSection />
         {/* Work (white) to Experience (dark) */}
        
-        <ExperienceSection />
+        {/* <ExperienceSection /> */}
         {/* Experience (dark) to Skills (white) */}
         
         <SkillsSection />

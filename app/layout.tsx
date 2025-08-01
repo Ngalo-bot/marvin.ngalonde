@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Marvin Ngalonde - Full Stack & Mobile Developer",
   description:
     "Highly passionate and driven tech enthusiast with a strong foundation in mobile and web development, specializing in React, Node.js, and low-code platforms like FlutterFlow. Proficient in full-stack development, with hands-on experience in building cross-platform web applications, designing front-end and back-end logic, and creating real-world business challenges. Eager to leverage expertise in dynamic environments to embrace challenges and continuously explore emerging technologies.",
-    generator: 'v0.dev'
+
 }
 
 export default function RootLayout({

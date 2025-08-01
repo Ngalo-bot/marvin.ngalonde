@@ -2,232 +2,344 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Building, MapPin, TrendingUp, Award, Users } from "lucide-react"
+import { Building, MapPin, TrendingUp, Award, BookOpen, ArrowRight } from "lucide-react"
 import FadeIn from "./FadeIn"
+import { useState } from "react"
 
 export default function ExperienceSection() {
+  const [expandedItems, setExpandedItems] = useState<number[]>([]);
+  const [expandedCerts, setExpandedCerts] = useState<number[]>([]);
+
+  const toggleItem = (index: number) => {
+    if (expandedItems.includes(index)) {
+      setExpandedItems(expandedItems.filter(i => i !== index));
+    } else {
+      setExpandedItems([...expandedItems, index]);
+    }
+  };
+
+  const toggleCert = (index: number) => {
+    if (expandedCerts.includes(index)) {
+      setExpandedCerts(expandedCerts.filter(i => i !== index));
+    } else {
+      setExpandedCerts([...expandedCerts, index]);
+    }
+  };
+
   const timeline = [
     {
-      year: "2023",
+      year: "2025",
       title: "Full Stack Developer",
       company: "Kimtronix Global",
       location: "Harare, Zimbabwe",
-      period: "January 2023 – Present",
+      period: "Jan 2023 – Present",
       type: "Full-time",
       current: true,
-      description:
-        "Developed and maintained cross-platform web applications using React, Node.js, and other modern web technologies. Designed and implemented robust front-end and back-end logic, ensuring seamless user experiences and efficient data flow.",
+      description: "Develop cross-platform web apps with React, Node.js, and modern technologies.",
       achievements: [
-        "Developed and maintained cross-platform web applications",
-        "Designed and implemented robust front-end and back-end logic",
-        "Contributed to creation of full-featured apps addressing business challenges",
-        "Collaborated with teams to deliver high-quality software solutions on schedule",
+        "Built full-featured apps addressing business challenges",
+        "Implemented robust front-end and back-end logic",
+        "Collaborated on high-quality software solutions",
       ],
-      technologies: ["ReactJS", "Node.js", "NextJS", "PHP", "CI/CD", "Docker", "GitHub Actions", "Vercel", "Jest", "MySQL", "PostgreSQL"],
-      impact: "Successfully addressed real-world business challenges",
-      color: "bg-navy-600", // Solid color
+      technologies: ["ReactJS", "Node.js", "NextJS", "PHP", "CI/CD", "Docker"],
+      color: "bg-[#000066]",
     },
     {
       year: "2024",
       title: "Mobile App Developer",
       company: "CyberSeIp Incorporation",
       location: "Harare, Zimbabwe",
-      period: "October 2024 – Present",
+      period: "Oct 2024 – Present",
       type: "Full-time",
       current: true,
-      description:
-        "Developed mobile applications primarily using Flutter and FlutterFlow, ensuring cross-platform compatibility. Managed the integration and linking of applications with Supabase backend, optimizing data synchronization and user experience.",
+      description: "Develop cross-platform mobile apps with Flutter/FlutterFlow.",
       achievements: [
-        "Developed cross-platform mobile applications with Flutter/FlutterFlow",
-        "Integrated applications with Supabase backend",
-        "Optimized data synchronization and user experience",
-        "Contributed to full mobile app development lifecycle",
+        "Integrated apps with Supabase backend",
+        "Optimized data synchronization",
+        "Full mobile app development lifecycle",
       ],
       technologies: ["Flutter", "FlutterFlow", "Supabase", "Firebase"],
-      impact: "Optimized data synchronization and user experience",
-      color: "bg-navy-600", // Solid color
+      color: "bg-[#000066]",
     },
     {
       year: "2021",
       title: "Web Developer",
       company: "Verdsoft Private Limited",
       location: "Harare, Zimbabwe",
-      period: "January 2021 – December 2023",
+      period: "Jan 2021 – Dec 2023",
       type: "Full-time",
       current: false,
-      description:
-        "Developed web applications using PHP, Python,  and JavaScript. Implemented fundamental web technologies to create responsive and user-friendly interfaces.",
+      description: "Developed web applications using PHP, Python, and JavaScript.",
       achievements: [
-        "Developed responsive web applications",
+        "Created responsive web applications",
         "Implemented fundamental web technologies",
-        "Contributed to design, development, and testing phases",
       ],
-      technologies: ["PHP", "Python", "HTML", "CSS", "JavaScript","Boostrap"],
-      impact: "Created responsive and user-friendly interfaces",
-      color: "bg-navy-700", // Solid color
+      technologies: ["PHP", "Python", "HTML", "CSS", "JavaScript"],
+      color: "bg-[#000099]",
     },
     {
-      year: "", // Assuming a start year for the diploma
-      title: "Diploma, Networking and PC Engineering",
+      year: "",
+      title: "Diploma, Networking",
       company: "Midlands State University",
       location: "Zimbabwe",
       period: "Diploma",
       type: "Education",
       current: false,
-      description: "Completed a diploma in Networking and PC Engineering.",
+      description: "Completed diploma in Networking and PC Engineering.",
       achievements: [],
       technologies: [],
-      impact: "",
-      color: "bg-purple-600", // Solid color
+      color: "bg-[#666699]",
     },
-  ]
+  ];
+
+  const certifications = [
+    {
+      title: "Developing AI Applications with Python and Flask",
+      issuer: "IBM",
+      date: "Jul 2025",
+      credentialId: "2O6VIK3OIILZ",
+      description: "Demonstrated skills in building AI applications using Python and Flask framework.",
+      skills: ["Python", "Flask", "AI Applications", "Machine Learning"],
+      color: "bg-blue-600",
+    },
+    {
+      title: "Developing Back-End Apps with Node.js and Express",
+      issuer: "IBM",
+      date: "Jul 2025",
+      credentialId: "X0W6DU1FKK4H",
+      description: "Proven ability to develop robust back-end applications using Node.js and Express.",
+      skills: ["Node.js", "Express", "Backend Development", "API Design"],
+      color: "bg-green-600",
+    },
+    {
+      title: "Developing Front-End Apps with React",
+      issuer: "IBM",
+      date: "Jul 2025",
+      credentialId: "1YKDI8N1FYSW",
+      description: "Validated expertise in building modern front-end applications with React.",
+      skills: ["React", "JavaScript", "Frontend Development", "UI/UX"],
+      color: "bg-sky-600",
+    },
+    {
+      title: "Django Application Development with SQL and Databases",
+      issuer: "IBM",
+      date: "Jul 2025",
+      credentialId: "U1ABN2YHP2UW",
+      description: "Demonstrated proficiency in Django development with database integration.",
+      skills: ["Django", "Python", "SQL", "Database Design"],
+      color: "bg-emerald-600",
+    },
+    {
+      title: "Python for Data Science, AI & Development",
+      issuer: "IBM",
+      date: "Jul 2025",
+      credentialId: "K2E8EKEQML4K",
+      description: "Verified skills in Python programming for data science and AI applications.",
+      skills: ["Python", "Data Science", "AI", "Pandas", "NumPy"],
+      color: "bg-indigo-600",
+    },
+    {
+      title: "AngularJS Course",
+      issuer: "Udemy",
+      date: "May 2024",
+      credentialId: "UC-392314e9-6680-4629-b289-7c22c08d7d20",
+      description: "Comprehensive training in AngularJS framework for web development.",
+      skills: ["Angular", "JavaScript", "Frontend Development", "Single Page Applications"],
+      color: "bg-red-600",
+    },
+    {
+      title: "JAVA Programming Masterclass",
+      issuer: "Udemy",
+      date: "May 2024",
+      credentialId: "UC-8ae7186b-d4ef-4909-937c-54ae1945833b",
+      description: "Mastery of Java programming language and core concepts.",
+      skills: ["Java", "OOP", "Algorithms", "Data Structures"],
+      color: "bg-orange-600",
+    }
+  ];
 
   return (
-    <section className="py-20 relative bg-[#000033]">
+    <section id="experience" className="py-16 relative bg-[#000011]">
       <div className="absolute inset-0 bg-dot-pattern opacity-10" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Experience Header */}
           <FadeIn>
-            <div className="text-center mb-20">
-              <div className="inline-block mb-4">
-                <Badge className="bg-navy-600 text-white px-4 py-2 text-sm">Professional Journey</Badge>{" "}
-                {/* Solid navy badge */}
-              </div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-                  Experience &
+            <div className="mb-12">
+              <Badge className="bg-[#000033] text-white px-3 py-1 text-xs mb-4">Experience</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-white to-[#ccccff] bg-clip-text text-transparent">
+                  Experience & Growth
                 </span>
-                <br />
-                <span className="bg-gradient-to-r from-navy-400 to-navy-400 bg-clip-text text-transparent">Growth</span>
               </h2>
-              <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                A journey of continuous learning, impactful contributions, and technical leadership across innovative
-                companies.
+              <p className="text-[#ccccff] max-w-2xl">
+                My career progression through innovative companies and impactful projects.
               </p>
             </div>
           </FadeIn>
 
-          {/* Timeline */}
-          <div className="relative mb-20">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-navy-500 hidden lg:block" /> {/* Solid navy line */}
-            <div className="space-y-12">
+          {/* Horizontal Timeline */}
+          <div className="flex overflow-x-auto pb-6 -mx-4 px-4">
+            <div className="flex space-x-4">
               {timeline.map((item, index) => (
-                <FadeIn key={index} delay={index * 150 + 100}>
-                  <div className="relative flex flex-col lg:flex-row items-start gap-8">
-                    {/* Timeline Node */}
-                    <div className="relative z-10 flex-shrink-0">
-                      <div className={`w-16 h-16 rounded-full ${item.color} p-0.5 shadow-lg`}>
-                        {/* Solid color */}
-                        <div className="w-full h-full bg-navy-950 rounded-full flex items-center justify-center">
-                          {item.type === "Education" ? (
-                            <Award className="w-6 h-6 text-white" />
-                          ) : (
-                            <TrendingUp className="w-6 h-6 text-white" />
-                          )}
-                        </div>
-                      </div>
-                      {item.current && (
-                        <div className="absolute -top-2 -right-2">
-                          <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
-                            <div className="w-2 h-2 bg-white rounded-full" />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Content */}
-                    <Card className="flex-1 bg-navy-900/50 border-navy-700 hover:bg-navy-800/50 transition-all duration-500">
-                      <CardContent className="p-8">
-                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
-                          <div className="flex-1">
+                <FadeIn key={index} delay={index * 100}>
+                  <div className="flex items-center">
+                    <div className="w-72 flex-shrink-0">
+                      <Card className={`bg-[#000033]/50 border border-[#000066] h-full transition-all ${expandedItems.includes(index) ? 'pb-0' : ''}`}>
+                        <CardContent className="p-0">
+                          <div 
+                            className="p-4 cursor-pointer"
+                            onClick={() => toggleItem(index)}
+                          >
                             <div className="flex items-center gap-3 mb-2">
-                              <span className={`text-2xl font-bold text-navy-400`}>
-                                {/* Solid navy text */}
-                                {item.year}
-                              </span>
-                              <Badge className={`${item.color} text-white`}>{item.type}</Badge>{" "}
-                              {/* Solid color badge */}
-                              {item.current && <Badge className="bg-green-500 text-white animate-pulse">Current</Badge>}
+                              <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center`}>
+                                {item.type.includes("Education") ? (
+                                  <Award className="w-3 h-3 text-white" />
+                                ) : (
+                                  <TrendingUp className="w-3 h-3 text-white" />
+                                )}
+                              </div>
+                              <div>
+                                <h3 className="text-sm font-semibold text-white">{item.title}</h3>
+                                <p className="text-xs text-[#ccccff]">{item.company}</p>
+                              </div>
                             </div>
-                            <h3 className="text-2xl font-semibold text-white mb-2">{item.title}</h3>
-                            <div className="flex flex-wrap items-center gap-4 text-slate-400 mb-4">
-                              <div className="flex items-center gap-1">
-                                <Building className="w-4 h-4" />
-                                <span className="font-medium">{item.company}</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <MapPin className="w-4 h-4" />
-                                <span>{item.location}</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <span>{item.period}</span>
-                              </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-xs text-[#ccccff]">{item.period}</span>
+                              {expandedItems.includes(index) ? (
+                                <span className="text-xs text-[#ccccff]">Show Less</span>
+                              ) : (
+                                <span className="text-xs text-[#ccccff]">Show More</span>
+                              )}
                             </div>
                           </div>
-                        </div>
 
-                        <p className="text-slate-300 mb-6 leading-relaxed">{item.description}</p>
-
-                        {/* Impact Highlight */}
-                        {item.impact && (
-                          <div className={`${item.color}/10 border border-navy-700 rounded-lg p-4 mb-6`}>
-                            {/* Solid color transparent background */}
-                            <div className="flex items-center gap-2 mb-2">
-                              <Award className="w-4 h-4 text-white" />
-                              <span className="text-sm font-semibold text-white">Key Impact</span>
-                            </div>
-                            <p className="text-slate-300">{item.impact}</p>
-                          </div>
-                        )}
-
-                        {/* Achievements */}
-                        {item.achievements.length > 0 && (
-                          <div className="mb-6">
-                            <h4 className="text-sm font-semibold text-slate-300 mb-3 flex items-center gap-2">
-                              <Users className="w-4 h-4" />
-                              Major Achievements
-                            </h4>
-                            <div className="grid md:grid-cols-2 gap-2">
-                              {item.achievements.map((achievement, achIndex) => (
-                                <div key={achIndex} className="flex items-start gap-2">
-                                  <div className={`w-1.5 h-1.5 rounded-full ${item.color} mt-2 flex-shrink-0`} />{" "}
-                                  {/* Solid color dot */}
-                                  <span className="text-slate-400 text-sm">{achievement}</span>
+                          {expandedItems.includes(index) && (
+                            <div className="px-4 pb-4 pt-2 border-t border-[#000066]">
+                              <p className="text-[#ccccff] mb-3 text-xs">{item.description}</p>
+                              
+                              {item.achievements.length > 0 && (
+                                <div className="mb-3">
+                                  <h4 className="text-xs font-semibold text-[#ccccff] mb-1">Achievements</h4>
+                                  <ul className="space-y-1">
+                                    {item.achievements.map((achievement, achIndex) => (
+                                      <li key={achIndex} className="flex items-start gap-2 text-xs text-[#ccccff]">
+                                        <span className={`w-1.5 h-1.5 rounded-full ${item.color} mt-1 flex-shrink-0`} />
+                                        {achievement}
+                                      </li>
+                                    ))}
+                                  </ul>
                                 </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+                              )}
 
-                        {/* Technologies */}
-                        {item.technologies.length > 0 && (
-                          <div>
-                            <h4 className="text-sm font-semibold text-slate-300 mb-3">Technologies Used</h4>
-                            <div className="flex flex-wrap gap-2">
-                              {item.technologies.map((tech, techIndex) => (
-                                <Badge
-                                  key={techIndex}
-                                  variant="outline"
-                                  className="border-slate-600 text-slate-300 hover:bg-slate-800 transition-colors"
-                                >
-                                  {tech}
-                                </Badge>
-                              ))}
+                              {item.technologies.length > 0 && (
+                                <div>
+                                  <h4 className="text-xs font-semibold text-[#ccccff] mb-1">Technologies</h4>
+                                  <div className="flex flex-wrap gap-1">
+                                    {item.technologies.map((tech, techIndex) => (
+                                      <Badge
+                                        key={techIndex}
+                                        variant="outline"
+                                        className="border-[#000066] text-[#ccccff] text-xs px-2 py-0.5"
+                                      >
+                                        {tech}
+                                      </Badge>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
                             </div>
-                          </div>
-                        )}
-                      </CardContent>
-                    </Card>
+                          )}
+                        </CardContent>
+                      </Card>
+                    </div>
+                    {index < timeline.length - 1 && (
+                      <div className="px-2">
+                        <ArrowRight className="w-6 h-6 text-[#666699]" />
+                      </div>
+                    )}
                   </div>
                 </FadeIn>
               ))}
             </div>
           </div>
 
-          {/* Certifications - Removed as per resume */}
+          {/* Certifications Header */}
+          <FadeIn>
+            <div className="mt-20 mb-8">
+              <Badge className="bg-[#000033] text-white px-3 py-1 text-xs mb-4">Certifications</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-white to-[#ccccff] bg-clip-text text-transparent">
+                  Licenses & Certifications
+                </span>
+              </h2>
+              <p className="text-[#ccccff] max-w-2xl">
+                Validated expertise through industry-recognized certifications.
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Certifications Grid */}
+          <div className="grid md:grid-cols-2 gap-4">
+            {certifications.map((cert, index) => (
+              <FadeIn key={index} delay={index * 100}>
+                <Card className={`bg-[#000033]/50 border border-[#000066] transition-all ${expandedCerts.includes(index) ? 'pb-0' : ''}`}>
+                  <CardContent className="p-0">
+                    <div 
+                      className="p-4 cursor-pointer"
+                      onClick={() => toggleCert(index)}
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className={`w-8 h-8 rounded-full ${cert.color} flex items-center justify-center`}>
+                          <BookOpen className="w-3 h-3 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-semibold text-white">{cert.title}</h3>
+                          <div className="flex items-center gap-2 text-xs text-[#ccccff]">
+                            <span>{cert.issuer}</span>
+                            <span>•</span>
+                            <span>{cert.date}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs text-[#ccccff]">Credential ID: {cert.credentialId}</span>
+                        {expandedCerts.includes(index) ? (
+                          <span className="text-xs text-[#ccccff]">Show Less</span>
+                        ) : (
+                          <span className="text-xs text-[#ccccff]">Show More</span>
+                        )}
+                      </div>
+                    </div>
+
+                    {expandedCerts.includes(index) && (
+                      <div className="px-4 pb-4 pt-2 border-t border-[#000066]">
+                        <p className="text-[#ccccff] mb-3 text-xs">{cert.description}</p>
+                        
+                        {cert.skills.length > 0 && (
+                          <div>
+                            <h4 className="text-xs font-semibold text-[#ccccff] mb-1">Skills Validated</h4>
+                            <div className="flex flex-wrap gap-1">
+                              {cert.skills.map((skill, skillIndex) => (
+                                <Badge
+                                  key={skillIndex}
+                                  variant="outline"
+                                  className="border-[#000066] text-[#ccccff] text-xs px-2 py-0.5"
+                                >
+                                  {skill}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
     </section>

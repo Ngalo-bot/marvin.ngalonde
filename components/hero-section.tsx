@@ -40,17 +40,17 @@ export default function HeroSection() {
   }
 
   const subtitleTexts = [
-    "Highly passionate and driven tech enthusiast.",
-    "Crafting digital experiences with clean code and creative solutions.",
-    "Ready for new challenges and collaborations 🚀",
+    "Highly passionate and driven tech enthusiast.",   
+    "Ready for new challenges and collaborations ",
   ]
 
   return (
-    <section id="hero" className="min-h-screen relative overflow-hidden">
+    <section id="hero" className="min-h-screen relative overflow-hidden bg-[#000011]">
       {/* DarkVeil Background - full screen */}
       <div className="absolute w-full h-full top-0 left-0 z-0">
         <DarkVeil
           // Blue hue shift
+          hueShift={360}
           noiseIntensity={0}
           scanlineIntensity={0.1}
           speed={0.5}
@@ -61,7 +61,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content container */}
-      <div className="container mx-auto px-6 h-full flex items-center justify-center">
+      <div className="container mt-12 mx-auto px-6 h-full flex items-center justify-center">
         <div className="relative z-10 flex flex-col lg:flex-row-reverse items-center lg:items-start justify-between gap-12 py-20 w-full pr-8 lg:pr-12">
           {/* 3D Rotating Profile Image - Right Side */}
           <div style={{ width: '100%', height: '600px', position: 'relative' }} className="flex items-center justify-center">
