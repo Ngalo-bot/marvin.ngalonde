@@ -2,7 +2,8 @@ import { CreativeNav } from "@/components/creative-nav"
 import HeroSection from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
 import WorkSection from "@/components/work-section"
-import ExperienceSection from "@/components/experience-section"
+import ProjectsSection from "@/components/projects"
+
 import SkillsSection from "@/components/skills-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
@@ -13,22 +14,25 @@ export default function Portfolio() {
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       <CreativeNav />
       <main>
+        {/* Hero Section - Dark background */}
         <HeroSection />
-        {/* Hero (dark) to About (dark) - no wavy divider needed */}
+        
+        {/* About Section - White background */}
         <AboutSection />
-        {/* About (dark) to Work (white) */}
         
+        {/* Projects Section - White background */}
+        <ProjectsSection />
+        
+        {/* Work Section - White background */}
         <WorkSection />
-        {/* Work (white) to Experience (dark) */}
-       
-        {/* <ExperienceSection /> */}
-        {/* Experience (dark) to Skills (white) */}
         
+        {/* Skills Section - White background */}
         <SkillsSection />
-        {/* Skills (white) to Contact (dark) */}
-       
+        
+        {/* Contact Section - Dark background */}
         <ContactSection />
-        {/* Contact (dark) to Footer (dark) - no wavy divider needed */}
+        
+        {/* Footer - Dark background */}
         <Footer />
       </main>
     </div>

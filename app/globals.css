@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    /* Updated to dark navy blue for primary elements */
-    --primary: 222.2 47.4% 7.2%; /* Darker navy blue (reduced lightness from 11.2% to 7.2%) */
+    /* Updated to support white background with navy accents */
+    --primary: 222.2 47.4% 7.2%; /* Dark navy blue for accents */
     --primary-foreground: 210 40% 98%;
     --ring: 222.2 47.4% 7.2%; /* Matching dark navy for focus ring */
   }
@@ -53,10 +53,10 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f0f0f0; /* Light gray track */
+  background: #f8f9fa; /* Light gray track */
 }
 
-/* Update scrollbar colors to match new dark navy */
+/* Update scrollbar colors to match new theme */
 ::-webkit-scrollbar-thumb {
   background: hsl(222.2 47.4% 7.2%); /* Dark navy */
 }
@@ -72,14 +72,14 @@ html {
 
 /* Grid pattern background for light theme */
 .bg-grid-pattern {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
 /* Glassmorphism effect for light theme */
 .glass {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -200,8 +200,8 @@ pre {
   z-index: -1; /* Ensure it's behind content */
 }
 
-/* Dot pattern background for dark theme */
+/* Dot pattern background for light theme */
 .bg-dot-pattern {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
 }

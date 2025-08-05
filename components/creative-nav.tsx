@@ -12,10 +12,15 @@ export function CreativeNav() {
   const navItems = [
     { id: "hero", label: "Home", icon: Home },
     { id: "about", label: "About", icon: User },
+    { id: "projects", label: "Projects", icon: Briefcase },
     { id: "work", label: "Experience", icon: Briefcase },
     { id: "skills", label: "Skills", icon: Briefcase },
     { id: "contact", label: "Contact", icon: Mail },
   ]
+
+  // Define which sections have dark backgrounds
+  const darkSections = ["hero"] // Only hero section is dark now
+  const isOnDarkSection = darkSections.includes(activeSection)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,20 +51,47 @@ export function CreativeNav() {
     setIsMobileMenuOpen(false)
   }
 
+  // Dynamic background and text colors based on section
+  const getNavStyles = () => {
+    if (isOnDarkSection) {
+      return {
+        nav: "bg-white/10 backdrop-blur-xl border-white/20",
+        text: "text-white",
+        textHover: "hover:text-white/80",
+        active: "bg-white/20 text-white",
+        mobile: "bg-white/10 backdrop-blur-xl border-white/20",
+        mobileText: "text-white",
+        mobileTextHover: "hover:text-white/80"
+      }
+    } else {
+      return {
+        nav: "bg-gray-900/10 backdrop-blur-xl border-gray-200/20",
+        text: "text-gray-900",
+        textHover: "hover:text-gray-700",
+        active: "bg-gray-900/20 text-gray-900",
+        mobile: "bg-gray-900/10 backdrop-blur-xl border-gray-200/20",
+        mobileText: "text-gray-900",
+        mobileTextHover: "hover:text-gray-700"
+      }
+    }
+  }
+
+  const styles = getNavStyles()
+
   return (
     <>
-      {/* Main Navigation with Frosted Glass Design and Centered Links */}
+      {/* Main Navigation with Dynamic Background */}
       <header
         className={`fixed top-4 left-1/2 -translate-x-1/2 w-full z-50 transition-all duration-500 max-w-7xl px-4 md:px-6`}
       >
         <nav
           className={`
             relative flex items-center justify-center
-            bg-white/10 backdrop-filter backdrop-blur-xl
-            border border-white/20
+            ${styles.nav}
+            border
             rounded-full px-6 py-2
             w-full transition-all duration-300
-            ${isScrolled ? "scale-95" : "scale-100"}
+            ${isScrolled ? "scale-95 shadow-lg" : "scale-100"}
           `}
         >
           {/* Desktop Navigation - Centered */}
@@ -71,8 +103,8 @@ export function CreativeNav() {
                 className={`
                   relative text-lg transition-colors duration-200 px-4 py-2 rounded-full
                   ${activeSection === item.id
-                    ? "bg-white/20 text-white" // Active
-                    : "text-white/80 hover:text-white" // Not active
+                    ? styles.active
+                    : `${styles.text} ${styles.textHover}`
                   }
                 `}
               >
@@ -86,7 +118,7 @@ export function CreativeNav() {
             variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden absolute right-4 text-white hover:bg-white/10"
+            className={`md:hidden absolute right-4 ${styles.text} hover:bg-white/10`}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
@@ -96,13 +128,13 @@ export function CreativeNav() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-md z-40 md:hidden" onClick={() => setIsMobileMenuOpen(false)}>
-          <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg p-6" onClick={(e) => e.stopPropagation()}>
+          <div className={`absolute top-6 right-6 ${styles.mobile} border rounded-lg p-6`} onClick={(e) => e.stopPropagation()}>
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="flex items-center gap-3 text-white text-lg hover:text-white/80 transition-colors"
+                  className={`flex items-center gap-3 ${styles.mobileText} text-lg ${styles.mobileTextHover} transition-colors`}
                 >
                   <item.icon className="w-5 h-5" />
                   {item.label}
@@ -113,16 +145,16 @@ export function CreativeNav() {
         </div>
       )}
 
-      {/* Floating Progress Indicator (Your original code) */}
+      {/* Floating Progress Indicator */}
       <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
-        <div className="bg-white/80 backdrop-blur-md border border-gray-200/50 rounded-full p-2">
+        <div className={`${isOnDarkSection ? 'bg-white/80' : 'bg-gray-900/80'} backdrop-blur-md border border-gray-200/50 rounded-full p-2`}>
           {navItems.map((item, index) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`block w-3 h-3 rounded-full mb-3 last:mb-0 transition-all duration-300 ${activeSection === item.id
-                ? "bg-sky-500 scale-125" // Solid sky-blue for active
-                : "bg-gray-400 hover:bg-gray-500"
+                ? "bg-[#000033] scale-125" // Navy blue for active
+                : isOnDarkSection ? "bg-white/60 hover:bg-white/80" : "bg-gray-400 hover:bg-gray-600"
                 }`}
               title={item.label}
             />

@@ -45,7 +45,7 @@ export default function HeroSection() {
   ]
 
   return (
-    <section id="hero" className="min-h-screen relative overflow-hidden bg-[#000011]">
+    <section id="hero" className="min-h-screen relative overflow-hidden bg-white">
       {/* DarkVeil Background - full screen */}
       <div className="absolute w-full h-full top-0 left-0 z-0">
         <DarkVeil

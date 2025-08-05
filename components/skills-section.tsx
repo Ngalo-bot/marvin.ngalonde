@@ -12,7 +12,7 @@ export default function SkillsSection() {
   const skillCategories = {
     frontend: {
       title: "Front-End",
-      color: "bg-[#000033]",
+      color: "bg-[#1a234e]",
       skills: [
         { name: "ReactJS", level: 95, experience: "3+ years" },
         { name: "NextJS", level: 90, experience: "3+ years" },
@@ -24,7 +24,7 @@ export default function SkillsSection() {
     },
     backend: {
       title: "Back-End",
-      color: "bg-[#000033]",
+      color: "bg-[#1a234e]",
       skills: [
         { name: "Node.js", level: 93, experience: "3+ years" },
         { name: "Python", level: 87, experience: "3+ years" },
@@ -34,7 +34,7 @@ export default function SkillsSection() {
     },
     databases: {
       title: "Databases",
-      color: "bg-[#000033]",
+      color: "bg-[#1a234e]",
       skills: [
         { name: "MySQL", level: 90, experience: "3+ years" },
         { name: "PostgreSQL", level: 88, experience: "3+ years" },
@@ -52,30 +52,28 @@ export default function SkillsSection() {
   ]
 
   return (
-    <section id="skills" className="py-16 relative bg-[#000011]">
+    <section id="skills" className="py-16 relative bg-white">
       <div className="absolute inset-0 bg-dot-pattern opacity-10" />
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header - Left Aligned */}
-     <FadeIn>
-  <div className="mb-12 text-right">
-    <div className="flex flex-col items-end">
-      <Badge className="bg-[#000033] text-white px-3 py-1 text-xs mb-4">Technical Expertise</Badge>
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        <span className="bg-gradient-to-r from-white to-[#ccccff] bg-clip-text text-transparent">
-          Skills & Technologies
-        </span>
-      </h2>
-      <p className="text-[#ccccff] max-w-2xl ml-auto">
-        A comprehensive toolkit built through years of hands-on experience.
-      </p>
-    </div>
-  </div>
-</FadeIn>
+        {/* Section Header - Centered */}
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <Badge className="bg-[#1a234e] text-white px-3 py-1 text-xs mb-4">Technical Expertise</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-gray-900 to-[#1a234e] bg-clip-text text-transparent">
+                Skills & Technologies
+              </span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              A comprehensive toolkit built through years of hands-on experience.
+            </p>
+          </div>
+        </FadeIn>
 
-        {/* Category Selector - Left Aligned */}
+        {/* Category Selector - Centered */}
         <FadeIn delay={100}>
-          <div className="flex flex-wrap gap-3 mb-8 justify-start">
+          <div className="flex flex-wrap gap-3 mb-8 justify-center">
             {Object.entries(skillCategories).map(([key, category]) => (
               <Button
                 key={key}
@@ -83,7 +81,7 @@ export default function SkillsSection() {
                 className={`px-4 py-2 rounded-full text-sm transition-all ${
                   activeCategory === key
                     ? `${category.color} text-white`
-                    : "bg-[#000033]/30 text-[#ccccff] hover:bg-[#000033]/50"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300"
                 }`}
               >
                 {category.title}
@@ -92,24 +90,30 @@ export default function SkillsSection() {
           </div>
         </FadeIn>
 
-        {/* Skills Grid - Left Aligned */}
+        {/* Skills Grid - 3 per row */}
         <FadeIn delay={150}>
-          <div className="grid md:grid-cols-2 gap-4 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {skillCategories[activeCategory as keyof typeof skillCategories].skills.map((skill, index) => (
-              <Card key={index} className="bg-[#000033]/50 border border-[#000066] text-left">
+              <Card key={index} className=" border border-gray-200 transition-all shadow-sm rounded-2xl">
                 <CardContent className="p-4">
                   <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-sm font-semibold text-white">{skill.name}</h3>
-                    <span className="text-xs text-[#ccccff]">{skill.experience}</span>
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      {skill.name}
+                    </h3>
+                    <span className="text-xs text-gray-600">
+                      {skill.experience}
+                    </span>
                   </div>
-                  <div className="w-full bg-[#000033]/30 rounded-full h-2 overflow-hidden">
+                  <div className="w-full rounded-full h-2 overflow-hidden bg-gray-200">
                     <div
-                      className="h-full bg-[#666699] rounded-full"
+                      className="h-full rounded-full bg-[#1a234e]"
                       style={{ width: `${skill.level}%` }}
                     />
                   </div>
                   <div className="text-right mt-1">
-                    <span className="text-xs text-[#ccccff]">{skill.level}% proficiency</span>
+                    <span className="text-xs text-gray-600">
+                      {skill.level}% proficiency
+                    </span>
                   </div>
                 </CardContent>
               </Card>
@@ -117,18 +121,22 @@ export default function SkillsSection() {
           </div>
         </FadeIn>
 
-        {/* Tools Section - Left Aligned */}
+        {/* Tools Section - Centered */}
         <FadeIn delay={200}>
-          <div className="mb-8 text-left">
-            <h3 className="text-xl font-semibold text-white mb-4">Tools & Software</h3>
-            <p className="text-sm text-[#ccccff] mb-4">Daily drivers that power my development workflow</p>
+          <div className="mb-8 text-center">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Tools & Software</h3>
+            <p className="text-sm text-gray-600 mb-6">Daily drivers that power my development workflow</p>
             
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {tools.map((tool, index) => (
-                <Card key={index} className="bg-[#000033]/50 border border-[#000066] text-left">
+                <Card key={index} className=" border border-gray-200 transition-all shadow-sm rounded-2xl">
                   <CardContent className="p-4">
-                    <h4 className="text-sm font-medium text-white">{tool.name}</h4>
-                    <p className="text-xs text-[#ccccff]">{tool.category}</p>
+                    <h4 className="text-sm font-medium text-gray-900">
+                      {tool.name}
+                    </h4>
+                    <p className="text-xs text-gray-600">
+                      {tool.category}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
