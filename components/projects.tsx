@@ -12,7 +12,7 @@ export default function Projects() {
       subtitle: "Web app for an Interior Design Company",
       description:
         "A modern website for Neocentric Interiors, showcasing their portfolio and services with a sleek, responsive design.",
-      image: "/public/neo.png",
+      image: "/neo.png",
       tech: ["ReactJS", "Typescript", "TailwindCSS"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/your-github",
@@ -24,7 +24,7 @@ export default function Projects() {
       subtitle: "Integrated Business Operations Solution",
       description:
         "An integrated system for comprehensive business management and point of sale operations, developed for Verdsoft Pvt Ltd.",
-      image: "/public/posy.png",
+      image: "/posy.png",
       tech: ["ReactJs", "NextJs", "Redux Toolkit","MySQL"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/your-github",
@@ -38,7 +38,7 @@ export default function Projects() {
       subtitle: "Comprehensive Gym Operations Solution",
       description:
         "A robust system for managing gym operations, including member management, class scheduling, and billing, built for Kimtronix Global.",
-      image: "/public/gym.png",
+      image: "/gym.png",
       tech: ["PHP", "Python", "MySQL"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/your-github",
@@ -50,7 +50,7 @@ export default function Projects() {
       subtitle: "Cross-Platform Point of Sale Application",
       description:
         "An intuitive mobile Point of Sale application designed for efficient transactions and inventory management, developed for CyberSeIp Incorporation.",
-      image: "/public/shop.jpg",
+      image: "/shop.jpg",
       tech: ["Flutter", "Supabase", "Firebase"],
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/your-github",
