@@ -82,7 +82,7 @@ export default function HeroSection() {
                   }}
                 >
                   <Image
-                    src="./public/my.png"
+                    src="/my.png"
                     alt="Marvin Ngalonde"
                     fill
                     className="object-cover"
