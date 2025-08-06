@@ -3,9 +3,8 @@
 
 const nextConfig = {
   output: 'export', 
-
-
-  
+  basePath: '/marvin.ngalonde',
+  assetPrefix: '/marvin.ngalonde/',  
 
   eslint: {
     ignoreDuringBuilds: true,
